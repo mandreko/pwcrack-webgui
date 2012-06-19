@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'mongoid'
+gem 'bson_ext'
+gem 'twitter-bootstrap-rails'
+
+gem 'pry-rails', :group => :development
 
 
 # Gems used only for assets and not required
@@ -17,12 +21,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
 
 # Use unicorn as the app server
 # gem 'unicorn'
