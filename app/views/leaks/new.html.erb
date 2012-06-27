@@ -1,0 +1,13 @@
+<%= form_for @leak, :url => { :action => "create" } do |f| %>
+	<div class="field>
+		<%= f.label :source %>
+		<%= f.text_field :source %>
+	</div>
+	<div class="field">
+		<%= f.label :file %>
+		<%= f.file_field :file %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>

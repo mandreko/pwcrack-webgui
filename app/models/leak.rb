@@ -1,11 +1,13 @@
 class Leak
 	include Mongoid::Document
+	include Mongoid::Paperclip
 	
-	field :filename
+	field :original_filename
 	field :source
-	field :has_finished_uploading
+	
+	has_mongoid_attached_file :file
 
-	validates :filename, :presence => true
+	validates :original_filename, :presence => true
 
 	references_many :passwords	
 end

@@ -1,0 +1,8 @@
+<tr class="leak" id="leak-<%= leak.id %>">
+	<td><%= leak.original_filename %></td>
+	<td><%= leak.source %></td>
+	<td><%= leak.file.nil? %></td>
+	<td><%= link_to 'Show', leak %></td>
+	<td><%= link_to 'Edit', edit_leak_path(leak) %></td>
+	<td><%= link_to 'Destroy', leak, :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
+</tr>

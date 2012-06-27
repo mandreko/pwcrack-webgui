@@ -4,6 +4,8 @@ gem 'rails', '3.2.6'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'twitter-bootstrap-rails'
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem "unicorn"
 
 gem 'pry-rails', :group => :development
 
