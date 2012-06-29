@@ -40,10 +40,11 @@ class LeaksController < ApplicationController
 	  @leak.original_filename = @leak.file_file_name
     #render :text => @leak.inspect
     
-    if @leak.save  
-      redirect_to @leak, :notice => "Successfully created leak."  
-    else  
-      render :action => 'new'  
-    end  
+    if @leak.save
+      @leak.load_data
+      redirect_to @leak, :notice => "Successfully created leak.  Loading of data has begun in the background."
+    else
+      render :action => 'new'
+    end
   end
 end

@@ -6,6 +6,7 @@ gem 'bson_ext'
 gem 'twitter-bootstrap-rails'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "unicorn"
+gem "delayed_job_mongoid"
 
 gem 'pry-rails', :group => :development
 
