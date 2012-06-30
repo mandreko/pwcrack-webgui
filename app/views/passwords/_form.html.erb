@@ -1,0 +1,56 @@
+<%= form_for @password, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :leak_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :leak_id, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :pwhash, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pwhash, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :salt, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :salt, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hash_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hash_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cleartext, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :cleartext, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :leaks_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :leaks_id, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                passwords_path, :class => 'btn' %>
+  </div>
+<% end %>

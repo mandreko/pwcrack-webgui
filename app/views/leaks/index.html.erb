@@ -1,10 +1,36 @@
-<h1>Listing leaks</h1>
-
-<table id="leaks">
-	<tr>
-		<th>File Name</th>
-		<th>Source</th>
-	</tr>
-	<%= render @leaks %>
+<%- model_class = Leak.new.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:original_filename) %></th>
+      <th><%= model_class.human_attribute_name(:source) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leaks.each do |leak| %>
+      <tr>
+        <td><%= leak.original_filename %></td>
+        <td><%= leak.source %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      leak, :class => 'btn btn-mini' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_leak_path(leak), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      leak_path(leak),
+                      :method => :delete,
+                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-<br />
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_leak_path,
+            :class => 'btn btn-primary' %>

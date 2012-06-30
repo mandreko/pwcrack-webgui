@@ -1,0 +1,35 @@
+<%- model_class = @password.class -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:_type) %>:</strong></dt>
+  <dd><%= @password._type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:_id) %>:</strong></dt>
+  <dd><%= @password._id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:leak_id) %>:</strong></dt>
+  <dd><%= @password.leak_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pwhash) %>:</strong></dt>
+  <dd><%= @password.pwhash %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:salt) %>:</strong></dt>
+  <dd><%= @password.salt %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hash_type) %>:</strong></dt>
+  <dd><%= @password.hash_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:cleartext) %>:</strong></dt>
+  <dd><%= @password.cleartext %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:leaks_id) %>:</strong></dt>
+  <dd><%= @password.leaks_id %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              passwords_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_password_path(@password), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              password_path(@password),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>
