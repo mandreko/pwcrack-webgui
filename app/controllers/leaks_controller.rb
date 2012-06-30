@@ -3,7 +3,7 @@ class LeaksController < ApplicationController
   # GET /leaks
   # GET /leaks.xml
   def index
-    @leaks = Leaks.all
+    @leaks = Leak.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +15,8 @@ class LeaksController < ApplicationController
   # GET /leaks/1.xml
   def show
     @leak = Leak.find(params[:id])
+    @passwords = Password.where(leak_id: @leak.id)
+    #@passwords = Password.all().take(10)
   
     respond_to do |format|
       format.html # show.html.erb

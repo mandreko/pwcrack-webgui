@@ -1,4 +1,4 @@
-<table>
+<table class="table table-bordered table-striped">
   <tr>
     <th>Original Filename</th>
     <th>Source</th>
@@ -9,7 +9,26 @@
   </tr>
   <%= render @leak %>
 </table>
+<br />
+Passwords: <%= @passwords.count %>
+<br />
 
+<% if @passwords.count > 0 %>
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Hash</th>
+    <th>Salt</th>
+    <th>Hash Type</th>
+    <th>Clear Text</th>
+  </tr>
+  <% @passwords.each do |password| %>
+    <%= render password %>
+  <% end %>
+</table>
+<% else %>
+No passwords found.
+<% end %>
+  
 <br />
 
 <%= link_to 'Back', leaks_path %>

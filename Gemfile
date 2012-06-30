@@ -14,6 +14,7 @@ group :development do
   gem "guard-bundler"
   gem "guard-test"
   gem "pry-rails"
+  gem "debugger"
 end
 
 
