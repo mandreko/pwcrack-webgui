@@ -14,16 +14,7 @@ class Leak
   def load_data
     
     File.open(self.file.path).each do |line|
-      
-      pattern = /^(?<hash>[a-zA-Z\d]*):?(?<salt>[a-zA-Z\d]*)?/
-      match = pattern.match line.strip
-      
-      pass = Password.new
-      pass.leakfilename = self.original_filename
-      pass.hash = match[:hash]
-      pass.salt = match[:salt]
-      pass.hash_type = "md5" # Calculate this somehow
-
+      pass = Password.parse(self.id, line)
       pass.save
      end
      
@@ -33,4 +24,5 @@ class Leak
   end
   # Always call load_data in the background
   handle_asynchronously :load_data
+
 end

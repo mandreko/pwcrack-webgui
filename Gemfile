@@ -7,8 +7,14 @@ gem 'twitter-bootstrap-rails'
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "unicorn"
 gem "delayed_job_mongoid"
+# Don't forget to run: rails runner 'Delayed::Backend::Mongoid::Job.create_indexes'
 
-gem 'pry-rails', :group => :development
+group :development do 
+  gem "guard"
+  gem "guard-bundler"
+  gem "guard-test"
+  gem 'pry-rails'
+end
 
 
 # Gems used only for assets and not required
