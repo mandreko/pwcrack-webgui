@@ -11,6 +11,10 @@ class Password
 
 	referenced_in :leaks
 	
+	index(:leak_id, {:unique => false, :name => "leak_id_index"})
+	index(:hash_type, {:unique => false, :name => "hash_type_index"})
+	# Don't forget: rake db:mongoid:create_indexes
+	
 	def self.parse(leak_id, line)
     pattern = /^(?<pwhash>[a-zA-Z\d]*):?(?<salt>[a-zA-Z\d]*)?/
     match = pattern.match line.strip

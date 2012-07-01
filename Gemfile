@@ -6,6 +6,8 @@ gem "bson_ext"
 gem "twitter-bootstrap-rails"
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
 gem "unicorn"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
 gem "delayed_job_mongoid"
 # Don't forget to run: rails runner 'Delayed::Backend::Mongoid::Job.create_indexes'
 

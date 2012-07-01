@@ -1,6 +1,7 @@
 development:
   host: localhost
   database: pwcrack_webui_development
+  persist_in_safe_mode: false
 
 test:
   host: localhost
