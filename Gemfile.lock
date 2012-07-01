@@ -72,6 +72,8 @@ GEM
     guard-test (0.5.0)
       guard (>= 1.1.0)
       test-unit (~> 2.2)
+    guard-unicorn (0.0.7)
+      guard (>= 1.1)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.4)
@@ -153,6 +155,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
+    ruby_gntp (0.3.4)
     sass (3.1.19)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -200,12 +203,14 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-test
+  guard-unicorn
   jquery-rails
   kaminari
   mongoid
   mongoid-paperclip
   pry-rails
   rails (= 3.2.6)
+  ruby_gntp
   sass-rails (~> 3.2.3)
   simple_form
   twitter-bootstrap-rails
