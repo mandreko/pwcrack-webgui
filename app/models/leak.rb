@@ -8,6 +8,7 @@ class Leak
   has_mongoid_attached_file :file
 
   validates :original_filename, :presence => true
+  validates :source, :presence => true
 
   references_many :passwords  
   
