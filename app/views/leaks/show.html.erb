@@ -8,11 +8,9 @@
   <dd><%= @leak.original_filename %></dd>
   <dt><strong><%= model_class.human_attribute_name(:source) %>:</strong></dt>
   <dd><%= @leak.source %></dd>
-  <dt><strong><%= t 'number_of_hashes' %></strong></dt>
-  <dd><%= @passwords.count %></dd>
 </dl>
 
-<% if @passwords.count > 0 %>
+
 <h2><%= t 'hashes' %></h2>
 <table class="table table-bordered table-striped">
   <thead>
@@ -27,7 +25,7 @@
 </table>
 <%= paginate @passwords, :theme => 'twitter-bootstrap' %>
 
-<% end %>
+
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

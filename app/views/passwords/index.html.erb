@@ -2,35 +2,26 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+<%= render "password_filter" %>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:_type) %></th>
-      <th><%= model_class.human_attribute_name(:_id) %></th>
       <th><%= model_class.human_attribute_name(:leak_id) %></th>
       <th><%= model_class.human_attribute_name(:pwhash) %></th>
       <th><%= model_class.human_attribute_name(:salt) %></th>
       <th><%= model_class.human_attribute_name(:hash_type) %></th>
       <th><%= model_class.human_attribute_name(:cleartext) %></th>
-      <th><%= model_class.human_attribute_name(:leaks_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @passwords.each do |password| %>
       <tr>
-        <td><%= link_to password.id, password_path(password) %></td>
-        <td><%= password._type %></td>
-        <td><%= password._id %></td>
         <td><%= password.leak_id %></td>
         <td><%= password.pwhash %></td>
         <td><%= password.salt %></td>
         <td><%= password.hash_type %></td>
         <td><%= password.cleartext %></td>
-        <td><%= password.leaks_id %></td>
-        <td><%=l password.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_password_path(password), :class => 'btn btn-mini' %>
@@ -44,6 +35,7 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @passwords, :theme => 'twitter-bootstrap' %>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_password_path,

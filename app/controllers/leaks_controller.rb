@@ -15,8 +15,8 @@ class LeaksController < ApplicationController
   # GET /leaks/1.json
   def show
     @leak = Leak.find(params[:id])
-    @passwords = Password.where(leak_id: @leak.id).page params[:page] || 1
-  
+    @passwords = @leak.passwords.page params[:page] || 1
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @leak }
@@ -82,7 +82,7 @@ class LeaksController < ApplicationController
     @leak = Leak.find(params[:id])
     
     # Find all passwords for this leak and delete them as well
-    @passwords = Password.where(leak_id: @leak.id)
+    @passwords = @leak.passwords
     
     @passwords.destroy
     @leak.destroy
