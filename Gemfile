@@ -18,7 +18,7 @@ group :development do
   gem "guard-test"
   gem "guard-unicorn"
   gem "pry-rails"
-  gem "debugger"
+  #gem "debugger"
   gem "ruby_gntp" if RUBY_PLATFORM =~ /darwin/
 end
 

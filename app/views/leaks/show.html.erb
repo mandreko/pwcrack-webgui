@@ -10,21 +10,25 @@
   <dd><%= @leak.source %></dd>
 </dl>
 
-
-<h2><%= t 'hashes' %></h2>
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>Hash</th>
-      <th>Salt</th>
-      <th>Hash Type</th>
-      <th>Clear Text</th>
-    </tr>
-  </thead>
-  <%= render @passwords %>
-</table>
-<%= paginate @passwords, :theme => 'twitter-bootstrap' %>
-
+<% if @leak.file_file_name.nil? %>
+    <h2><%= t 'hashes' %></h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Hash</th>
+          <th>Salt</th>
+          <th>Hash Type</th>
+          <th>Clear Text</th>
+        </tr>
+      </thead>
+      <%= render @passwords %>
+    </table>
+    <%= paginate @passwords, :theme => 'twitter-bootstrap' %>
+<% else %>
+    <div class="alert">
+      <strong>Warning!</strong> Data is still loading. <a href="javascript:history.go(0)">Refresh?</a>
+    </div>
+<% end %>
 
 
 <div class="form-actions">

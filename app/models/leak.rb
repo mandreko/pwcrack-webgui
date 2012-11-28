@@ -5,7 +5,9 @@ class Leak
   field :original_filename
   field :source
   
-  has_mongoid_attached_file :file
+  has_mongoid_attached_file :file,
+                            :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+                            :url => "/system/:attachment/:id/:style/:filename"
 
   validates :original_filename, :presence => true
   validates :source, :presence => true
